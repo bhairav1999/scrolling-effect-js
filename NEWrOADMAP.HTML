@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .roadmap-main {
+    display: flex;
+    align-items: center;
+    gap: 82px;
+    padding: 10px;
+    background-color: #F8FAFB;
+    white-space: nowrap; 
+    overflow-x: auto; 
+  }
+
+  .rodmap_wwrapper {
+    display: inline-block; /* Make each item inline-block */
+    vertical-align: top; /* Align to the top of the container */
+    position: relative;
+    gap: 0px;
+    height: 225px;
+    border-radius: 8px;
+    opacity: 0px;
+    text-align: center;
+  }
+
+  .rodmap_wwrapper::after {
+    content: "";
+    position: absolute;
+    top: 19%;
+    left: calc(100% + -1px);
+    height: 2px;
+    background-color: #c5b27d;
+    width: 181px;
+  }
+
+  .rodmap_wwrapper:last-child::after {
+    display: none;
+  }
+
+  .rodmap_wwrapper h3 {
+    width: 294px;
+    font-family: Century Gothic;
+    font-size: 22.28px;
+    font-weight: 700;
+    line-height: 25.84px;
+    color: #c5b27d;
+    margin: 0 0 10px 0;
+  }
+
+  .rodmap_wwrapper h4 {
+    width: 294px;
+    font-family: Century Gothic;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.56px;
+    text-align: center;
+    color: #0f454f;
+  }
+
+  .rodmap_wwrapper p {
+    display: inline-block; /* Change display to inline-block */
+    width: 294px;
+    font-family: Century Gothic;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: center;
+    color: #0f454f;
+    margin: 0; /* Remove margin */
+    text-wrap: wrap;
+  }
+
+  .range {
+    width: 294px;
+    height: 16px;
+    top: 38px;
+    gap: 0px;
+    border-radius: 56px;
+    opacity: 0px;
+    background: #0f454f;
+  }
+
+  /* Custom scrollbar styles */
+  .roadmap-main::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    /* Removed display property */
+  }
+
+  /* Responsive design */
+</style>
+</head>
+<body>
+<div class="roadmap-main" id="roadmapContainer">
+  <div class="rodmap_wwrapper">
+    <h3>2017</h3>
+    <div class="range"></div>
+    <h4>Started Renovation</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Nunc sapien consequat mi in.
+      Cursus in nulla a eget sed risus
+    </p>
+  </div>
+  <div class="rodmap_wwrapper">
+    <h3>2018</h3>
+    <div class="range"></div>
+    <h4>Started Renovation</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Nunc sapien consequat mi in.
+      Cursus in nulla a eget sed risus
+    </p>
+  </div>
+  <div class="rodmap_wwrapper">
+    <h3>2019</h3>
+    <div class="range"></div>
+    <h4>Started Renovation</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Nunc sapien consequat mi in.
+      Cursus in nulla a eget sed risus
+    </p>
+  </div>
+  <div class="rodmap_wwrapper">
+    <h3>2020</h3>
+    <div class="range"></div>
+    <h4>Started Renovation</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Nunc sapien consequat mi in.
+      Cursus in nulla a eget sed risus
+    </p>
+  </div>
+  <div class="rodmap_wwrapper">
+    <h3>2021</h3>
+    <div class="range"></div>
+    <h4>Started Renovation</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Nunc sapien consequat mi in.
+      Cursus in nulla a eget sed risus
+    </p>
+  </div>
+</div>
+
+<script>
+  // JavaScript for scrolling
+  const container = document.getElementById("roadmapContainer");
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  container.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+  });
+
+  container.addEventListener("mouseleave", () => {
+    isDown = false;
+  });
+
+  container.addEventListener("mouseup", () => {
+    isDown = false;
+  });
+
+  container.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1; 
+    container.scrollLeft = scrollLeft - walk;
+  });
+</script>
+</body>
+</html>
